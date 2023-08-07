@@ -1,0 +1,68 @@
+{
+  "name": "battlesnake-board",
+  "version": "1.2.1",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "11.4.1",
+    "@emotion/styled": "11.3.0",
+    "@reduxjs/toolkit": "^1.6.2",
+    "lodash.clonedeep": "4.5.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-keyboard-event-handler": "1.5.4",
+    "react-redux": "7.2.5",
+    "react-router-dom": "^5.3.0"
+  },
+  "devDependencies": {
+    "@emotion/eslint-plugin": "^11.2.0",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/node-logger": "^6.3.12",
+    "@storybook/preset-create-react-app": "^3.2.0",
+    "@storybook/react": "^6.3.12",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "eslint-plugin-prettier": "3.1.2",
+    "lint-staged": "10.0.8",
+    "prettier": "1.19.1",
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "lint": "eslint ./src --ext .js,.jsx",
+    "lint:fix": "eslint --fix ./src --ext .js,.jsx",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "storybook": "start-storybook -p 6006 -s public",
+    "build-storybook": "build-storybook -o ./storybook-static -s public",
+    "build-storybook-ci": "build-storybook -o ./docs -s public"
+  },
+  "lint-staged": {
+    "*.{js,json,css,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "none",
+    "singleQuote": false
+  }
+}
