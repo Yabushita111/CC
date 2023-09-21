@@ -125,6 +125,9 @@ func NewPlayCommand() *cobra.Command {
 func (gameState *GameState) Initialize() error {
 	// Generate game ID
 	gameState.gameID = uuid.New().String()
+	// Modified: by yabu
+	// watch.pyへgameIDを渡す
+	fmt.Println(gameState.gameID)
 
 	// Set up HTTP client with request timeout
 	if gameState.Timeout == 0 {
