@@ -116,4 +116,5 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
         
 
 with socketserver.ThreadingTCPServer(("", 8000), MyHandler) as httpd:
+    print("deploy server running...")
     httpd.serve_forever()
