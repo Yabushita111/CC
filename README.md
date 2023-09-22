@@ -25,5 +25,9 @@ windows上でlinuxたてる場合はwindowsとのポートフォワーディン�
 ### 手順3 必要なpythonパッケージをインストール
 `pip3 install -r CC/requirement.txt`
 ### 手順4 プロセスvcli(jsonをboardに送信する),battlesnake(ゲームを実行する)のpathを通す
-`export PATT`
+以下をbashrcに記述
+`# make path for battlesnake
+export PATH=$PATH:/ホームディレクトリ/CC/Battlesnake-rules/cli/battlesnake
+export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI
+
 
