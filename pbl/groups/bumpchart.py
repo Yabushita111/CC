@@ -1,6 +1,5 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import rankdata
 
 def get_ranking(array):
     n = len(array)

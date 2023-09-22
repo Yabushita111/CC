@@ -28,6 +28,6 @@ windows上でlinuxたてる場合はwindowsとのポートフォワーディン�
 以下をbashrcに記述
 `# make path for battlesnake
 export PATH=$PATH:/ホームディレクトリ/CC/Battlesnake-rules/cli/battlesnake
-export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI
+export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI`
 
 
