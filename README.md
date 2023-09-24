@@ -7,10 +7,10 @@ boardフォルダ内で\
 `export NODE_OPTIONS=--openssl-legacy-provider`\
 `npm start`
 - deployサーバ起動\
-`cd CC/pbl/groups`
+pbl/groupsフォルダ内で\
 `python3 deploy.py`
 - webサーバ起動\
-`cd CC/result`
+resultフォルダ内で\
 `python3 server.py`
 ## CCセットアップ
 ### 前提条件
@@ -21,13 +21,22 @@ windows上でlinuxたてる場合はwindowsとのポートフォワーディン�
 `cd ~`
 `git clone https://github.com/Yabushita111/CC.git`
 ### 手順2 ローカルグループフォルダとgithub上のリモートグループフォルダを連携
-`python3 ~/pbl/groups/git-init.py`
+※ただし連携先のgithubはYabushtia111にあるテスト環境pblb2023g01-pblb2023g14となる。
+`cd CC/pbl/groups`
+`python3 git-init.py`
 ### 手順3 必要なpythonパッケージをインストール
 `pip3 install -r CC/requirement.txt`
 ### 手順4 プロセスvcli(jsonをboardに送信する),battlesnake(ゲームを実行する)のpathを通す
 以下をbashrcに記述
-`# make path for battlesnake
+```
+# make path for battlesnake
 export PATH=$PATH:/ホームディレクトリ/CC/Battlesnake-rules/cli/battlesnake
-export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI`
+export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI
+```
+
+### 詰まりそうなところ
+ポートフォワーディング
+webhook
+osによってdeploy.pyのsubprocessでshell=TrueをFalseに切り替える必要あり
 
 

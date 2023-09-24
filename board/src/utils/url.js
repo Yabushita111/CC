@@ -6,7 +6,7 @@ export function parseQueryString(q) {
   console.log(q);
   const game_id = q.substr(1);
   const args = [2];
-  args[0] = { key: "engine", value: "https://tyr.ics.es.osaka-u.ac.jp/vcli" };
+  args[0] = { key: "engine", value: "http://localhost:4000" };
   args[1] = { key: "game", value: game_id };
   console.log("args[0] ouput : ");
   console.log(args[0]);
