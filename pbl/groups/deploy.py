@@ -17,11 +17,15 @@ from urllib.parse import parse_qs, urlparse
 # 全てのリポジトリへのpushが同じurlにアクセスさせて，通知の中身見てどのリポジトリをpullすれば良いか判断したい
 class MyHandler(http.server.BaseHTTPRequestHandler):
     def do_POST(self):
+        # webhookによるjsonかリポジトリ名を取得
         total_time_start = time.perf_counter()
         content_length = int(self.headers['content-length'])
         req_body = self.rfile.read(content_length).decode("utf-8")
         j = json.loads(req_body)
         commit_group_name = j["repository"]["name"]
+        if commit_group_name == 'pblb2023g98':
+            print('g98 commit !')
+            commit_group_name = 'pblb2023g14'
         commit_group_path = os.path.abspath(commit_group_name)
         fetchStr = "git -C "+commit_group_path+" fetch origin main"
         resetStr = "git -C "+commit_group_path+" reset --hard origin/main"

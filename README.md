@@ -19,6 +19,11 @@ git clone https://github.com/Yabushita111/CC.git
 cd ~/CC/pbl/groups
 python3 git-init.py
 ```
+以下で研究室のpblb2023g01-pblb2023g14に連携
+```
+cd ~/CC/pbl/groups
+python3 kusumoto-git-init.py
+```
 ### 手順4 slack appのトークンを設定ファイルに登録
 ```
 cd ~/CC/pbl/groups
@@ -35,7 +40,9 @@ export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI
 ```
 
 ## 起動方法
-rproxyを適切なipアドレスに変更
+rproxyを適切なipアドレスに変更\
+CC/reset.pyの実行でサーバ初期化(webの記事、図、gameのログ全削除)
+
 
 ### cc-replayサーバ起動
 nodejsのバージョンがある程度上がるとサーバ起動しない。\
@@ -54,6 +61,8 @@ python3 deploy.py
 cd ~/CC/result
 python3 server.py
 ```
+## つまるところ
+privateの最初の実行でdeploy.pyがgit pullする際にユーザ名とパスワードの入力要求するかも
 ## 課題
 #### 開発
 - [ ] vcliの改変
