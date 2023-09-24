@@ -5,6 +5,8 @@ osはlinux(ubuntu)を想定。\
 git,python3,pip3 インストール済み.gitは最新。python3は3.10.6。pip3は22.2.1で確認済み。\
 node.js,npm インストール済み。
 ```
+sudo apt update
+sudo apt install python3-pip
 sudo apt install nodejs npm
 ```
 windows上でlinuxたてる場合はwindowsとのポートフォワーディング必要だが仮想マシンの場合は不明。必要なら適宜設定。
@@ -30,7 +32,7 @@ cd ~/CC/pbl/groups
 python3 make-env.py
 ```
 ### 手順5 必要なpythonパッケージをインストール
-`pip3 install -r CC/requirement.txt`
+`pip3 install -r ~/CC/requirements.txt`
 ### 手順6 プロセスvcli(jsonをboardに送信する),battlesnake(ゲームを実行する)のpathを通す
 以下をbashrcに記述
 ```
@@ -38,7 +40,7 @@ python3 make-env.py
 export PATH=$PATH:/ホームディレクトリ/CC/Battlesnake-rules/cli/battlesnake
 export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI
 ```
-
+sourceした後、vcli,battlesnakeを実行しパスが通っているか確かめると良い。
 ## 起動方法
 rproxyを適切なipアドレスに変更\
 CC/reset.pyの実行でサーバ初期化(webの記事、図、gameのログ全削除)
@@ -62,7 +64,8 @@ cd ~/CC/result
 python3 server.py
 ```
 ## つまるところ
-privateの最初の実行でdeploy.pyがgit pullする際にユーザ名とパスワードの入力要求するかも
+privateの最初の実行でdeploy.pyがgit pullする際にユーザ名とパスワードの入力要求するかも\
+vcliであるCC/Virutal-CLI/main.go改変する場合は[go](https://virment.com/how-to-install-latest-go-lang-on-linux/)インストール必要
 ## 課題
 #### 開発
 - [ ] vcliの改変
