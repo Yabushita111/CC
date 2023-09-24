@@ -24,9 +24,9 @@ python3 git-init.py
 cd ~/CC/pbl/groups
 python3 make-env.py
 ```
-### 手順3 必要なpythonパッケージをインストール
+### 手順5 必要なpythonパッケージをインストール
 `pip3 install -r CC/requirement.txt`
-### 手順4 プロセスvcli(jsonをboardに送信する),battlesnake(ゲームを実行する)のpathを通す
+### 手順6 プロセスvcli(jsonをboardに送信する),battlesnake(ゲームを実行する)のpathを通す
 以下をbashrcに記述
 ```
 # make path for battlesnake
@@ -54,9 +54,31 @@ python3 deploy.py
 cd ~/CC/result
 python3 server.py
 ```
-## 詰まりそうなところ
-ポートフォワーディング\
-webhook\
-osによってdeploy.pyのsubprocessでshell=TrueをFalseに切り替える必要あり
+## 課題
+#### 開発
+- [ ] vcliの改変
+- [ ] replテスト
+- [ ] duel実装
+#### slack
+- [ ] 画像とurlを1メッセージでpost
+- [ ] 画像だけでなくて"g9 commit"や，どうランクが変動したかなどのメッセージ
+- [x] appの名前をcc-botに変更し,アイコンつける
+- [x] 画像の縦軸に"rank"とつける
+- [ ] 画像の横軸の斜めフォントを縦に変更
+
+#### 初回授業
+初夏授業時に簡単な説明．スライド1p,max5m程度．
+"藪下です．研究の一環でccというツールを導入します．...もしよろしければ使ってください．"くらいの説明はあるべき．ccの主張はすべき．
+
+#### wepページ
+- [x] 図を含めて左寄せにする
+- [x] タイトルを"PBLB2023 対戦結果速報"とかに変える．
+- [ ] "g1 commit"の下にサブタイトル的にで日付を入れる
+- [ ] 画像のグループ一覧は自然な形にする
+- [ ] それに合わせて表も2段組にする．可読性のために🔴group1 とかにする．
+- [ ] aタグで各commitにタグつける．slackに送るurlもそれに飛べるようにする．(#commit-id)
+- [ ] 表の桁はmaxの3桁に合わせる．形が不変な表．
+- [ ] tdのカーソルを切る．aタグいれたのでもういらない．
+- [ ] helpリンク or how to ある方が良い
 
 
