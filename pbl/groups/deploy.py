@@ -71,6 +71,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
                 game_id.append(result.stdout.strip())
                 print("gameid : " + game_id[i])
                 #scoreを得る
+                print(result.stderr)
                 score.append(str(int(result.stderr.split()[-2]) -1))
                 print("score : " + score[i])
                 sum += int(score[i])
