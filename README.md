@@ -5,9 +5,10 @@ rproxyを適切なipアドレスに変更
 cc-replayサーバ起動
 ```
 cd ~/CC/board
-export NODE_OPTIONS=--openssl-legacy-provider
 npm start
 ```
+nodejsのバージョンがある程度上がるとサーバ起動しない。\
+boardフォルダ内でP`export NODE_OPTIONS=--openssl-legacy-provider`実行してから`npm start`するとよい。
 deployサーバ起動
 ```
 cd ~/CC/pbl/groups
@@ -22,9 +23,9 @@ python3 server.py
 ### 前提条件
 osはlinux(ubuntu)を想定。\
 git,python3,pip3 インストール済み.gitは最新。python3は3.10.6。pip3は22.2.1で確認済み。\
-node.js,npm インストール済み（board起動の際にバージョンは戻すためある程度最新ならok）\ 
+node.js,npm インストール済み（board起動の際にバージョンは戻すためある程度最新ならok）
 ```
-sudo apt nodejs npm
+sudo apt install nodejs npm
 ```
 windows上でlinuxたてる場合はwindowsとのポートフォワーディング必要だが仮想マシンの場合は不明。必要なら適宜設定。
 ### 手順1 git clone
