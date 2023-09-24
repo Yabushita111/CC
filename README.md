@@ -3,27 +3,41 @@
 rproxyを適切なipアドレスに変更
 
 - cc-replayサーバ起動\
-boardフォルダ内で\
-`export NODE_OPTIONS=--openssl-legacy-provider`\
-`npm start`
+```
+cd ~/CC/board
+export NODE_OPTIONS=--openssl-legacy-provider
+npm start
+```
 - deployサーバ起動\
-pbl/groupsフォルダ内で\
-`python3 deploy.py`
+```
+cd ~/CC/pbl/groups
+python3 deploy.py
+```
 - webサーバ起動\
-resultフォルダ内で\
-`python3 server.py`
+```
+cd ~/CC/result
+python3 server.py
+```
 ## CCセットアップ
 ### 前提条件
+osはlinux(ubuntu)を想定。\
 git,python3,pip3 インストール済み.gitは最新。python3は3.10.6。pip3は22.2.1で確認済み。\
-node.js,npm インストール済み（board起動の際にバージョンは戻すためある程度最新ならok）\
+node.js,npm インストール済み（board起動の際にバージョンは戻すためある程度最新ならok）\ 
+```
+sudo apt nodejs npm
+```
 windows上でlinuxたてる場合はwindowsとのポートフォワーディング必要だが仮想マシンの場合は不明。必要なら適宜設定。
 ### 手順1 git clone
-`cd ~`
-`git clone https://github.com/Yabushita111/CC.git`
+```
+cd ~
+git clone https://github.com/Yabushita111/CC.git
+```
 ### 手順2 ローカルグループフォルダとgithub上のリモートグループフォルダを連携
-※ただし連携先のgithubはYabushtia111にあるテスト環境pblb2023g01-pblb2023g14となる。
-`cd CC/pbl/groups`
-`python3 git-init.py`
+※ただし連携先のgithubは[Yabushtia111](https://github.com/Yabushita111)にあるテスト環境pblb2023g01-pblb2023g14
+```
+cd ~/CC/pbl/groups
+python3 git-init.py
+```
 ### 手順3 必要なpythonパッケージをインストール
 `pip3 install -r CC/requirement.txt`
 ### 手順4 プロセスvcli(jsonをboardに送信する),battlesnake(ゲームを実行する)のpathを通す
@@ -35,8 +49,8 @@ export PATH=$PATH:/ホームディレクトリ/CC//Virtual-CLI
 ```
 
 ### 詰まりそうなところ
-ポートフォワーディング
-webhook
+ポートフォワーディング\
+webhook\
 osによってdeploy.pyのsubprocessでshell=TrueをFalseに切り替える必要あり
 
 
