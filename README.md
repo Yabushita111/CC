@@ -2,18 +2,18 @@
 ## 起動方法
 rproxyを適切なipアドレスに変更
 
-- cc-replayサーバ起動\
+cc-replayサーバ起動
 ```
 cd ~/CC/board
 export NODE_OPTIONS=--openssl-legacy-provider
 npm start
 ```
-- deployサーバ起動\
+deployサーバ起動
 ```
 cd ~/CC/pbl/groups
 python3 deploy.py
 ```
-- webサーバ起動\
+webサーバ起動
 ```
 cd ~/CC/result
 python3 server.py
