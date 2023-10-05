@@ -14,7 +14,7 @@ def get_ranking(array):
                 break
     return ranks 
 def make_chart(commit_group,game_id):
-    log_path = '../result/chart-log/'
+    log_path = '../cc-web/public/chart-log/'
     time = []
     groups = np.empty((14, 0), dtype=int)
     #group1:赤,group2:青,group3:緑,group4:黄色,group5:オレンジ,group6:ピンク,group7:紫

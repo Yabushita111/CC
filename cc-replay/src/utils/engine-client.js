@@ -7,9 +7,7 @@ const DEFAULT_SNAKE_TAIL = "default";
 const APP_VERSION = process.env.REACT_APP_VERSION;
 
 async function get(url, query) {
-  console.log("output game config");
   const response = await fetch(url + makeQueryString(query));
-  console.log(response);
   if (response.status === 200) {
     return Promise.resolve(response.json());
   } else {
@@ -114,20 +112,20 @@ async function prepareFrame(frame) {
 
 export function fetchGameInfo(baseUrl, gameId) {
   const url = join(baseUrl, `games/${gameId}`);
-  console.log("output:");
-  console.log(url);
   return get(url);
 }
 
 export async function streamAllEvents(baseUrl, gameId, receiveEvent) {
+  // modified yabust
+  const href = window.location.href;
+  baseUrl = href.substr(0, href.lastIndexOf("/") + 1);
+  //
   const game = await fetchGameInfo(baseUrl, gameId);
-  console.log(game);
   let chain = Promise.resolve();
   function onEngineEvent(engineEvent) {
     if (engineEvent.Type) {
       const eventData = engineEvent.Data || engineEvent;
       //output eventdata
-      console.log(eventData);
       chain = chain.then(async () => {
         if (engineEvent.Type === "frame") {
           await prepareFrame(eventData);
@@ -139,8 +137,6 @@ export async function streamAllEvents(baseUrl, gameId, receiveEvent) {
   }
 
   const wsUrl = join(httpToWsProtocol(baseUrl), `games/${gameId}/events`);
-  console.log("output wsurl");
-  console.log(wsUrl);
   await streamAll(wsUrl, onEngineEvent);
   await chain;
 }

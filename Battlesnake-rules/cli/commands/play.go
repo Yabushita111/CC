@@ -224,9 +224,20 @@ func (gameState *GameState) Run() error {
 	// don't need write("/n")
 	home, err := os.UserHomeDir()
 	battlelogPath := home + "/CC/battlelog/"
-	filename := battlelogPath + gameState.gameID + ".json"
-	file, err := os.OpenFile(filename, os.O_CREATE|os.O_WRONLY, 0644)
-	json.NewEncoder(file).Encode(boardGame)
+	
+	gameConfigFilePath := battlelogPath + gameState.gameID 
+	eventsFilePath := battlelogPath + gameState.gameID + ".json"
+	gameConfigFile, err := os.OpenFile(gameConfigFilePath, os.O_CREATE|os.O_WRONLY, 0644)
+	eventsFile, err := os.OpenFile(eventsFilePath, os.O_CREATE|os.O_WRONLY, 0644)
+	// game config となる１行目を{"Game":}で囲んで保存
+	type addGame struct {
+		Game	board.Game `json:"Game"`
+	}
+	game := addGame{
+		Game:	boardGame,
+	}
+	json.NewEncoder(gameConfigFile).Encode(game)
+	
 
 	if gameState.ViewInBrowser {
 		serverURL, err := boardServer.Listen()
@@ -248,15 +259,14 @@ func (gameState *GameState) Run() error {
 	}
 
 	// Modified: by yabusit
-	// save turn0
+	// game eventsとなる2行目以降の盤面情報を保存
 	event := gameState.buildFrameEvent(boardState)
-	json.NewEncoder(file).Encode(event)
-	//fmt.Println(event)
+	json.NewEncoder(eventsFile).Encode(event)
 	// TODO what happen if file already exists.
 	if err != nil {
 		fmt.Println(err)
 	}
-	defer file.Close()
+	defer gameConfigFile.Close()
 
 	log.INFO.Printf("Ruleset: %v, Seed: %v", gameState.GameType, gameState.Seed)
 
@@ -317,8 +327,7 @@ func (gameState *GameState) Run() error {
 		}
 		// Modified: by yabusit
 		event := gameState.buildFrameEvent(boardState)
-		json.NewEncoder(file).Encode(event)
-		//fmt.Println(event)
+		json.NewEncoder(eventsFile).Encode(event)
 
 		if exportGame {
 			for _, snakeState := range gameState.snakeStates {
@@ -369,7 +378,7 @@ func (gameState *GameState) Run() error {
 		EventType: board.EVENT_TYPE_GAME_END,
 		Data:      boardGame,
 	}
-	json.NewEncoder(file).Encode(lastFrame)
+	json.NewEncoder(eventsFile).Encode(lastFrame)
 
 	if exportGame {
 		lines, err := gameExporter.FlushToFile(gameState.outputFile)

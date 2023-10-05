@@ -23,6 +23,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
         req_body = self.rfile.read(content_length).decode("utf-8")
         j = json.loads(req_body)
         commit_group_name = j["repository"]["name"]
+        # [test]g98からのwebhook時はg14につなげる
         if commit_group_name == 'pblb2023g98':
             print('g98 commit !')
             commit_group_name = 'pblb2023g14'
@@ -35,7 +36,7 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             print(dt_now.strftime('%Y/%m/%d %H:%M:%S') + ': ' + commit_group_name + ' modified main.py.')
             subprocess.run(fetchStr,shell=True)
             subprocess.run(resetStr,shell=True)
-            log_path = '../../result/chart-log/' 
+            log_path = '../../cc-web/public/chart-log/' 
             commited_file_path = commit_group_path + '/main.py'
             commit_group_num = commit_group_name[-2:]
             dt_now = datetime.datetime.now()
@@ -99,7 +100,9 @@ class MyHandler(http.server.BaseHTTPRequestHandler):
             update_web(int(commit_group_num),game_id,score,num_game,now_time) #webサイトを更新
             #slackへ投稿
             chart = log_path + game_id[0] + '.png'
-            channel = '#cc'
+            #本番環境では#ccにするべき
+            #chennel = '#cc'
+            channel = '#cc-test'
             with open('.env','r') as f:
                 token = f.readline()
             cc_url = 'https://tyr.ics.es.osaka-u.ac.jp/cc/'

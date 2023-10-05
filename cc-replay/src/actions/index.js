@@ -63,7 +63,6 @@ export const fetchFrames = () => {
       game: gameId,
       turn
     } = getState().game.gameOptions;
-
     dispatch(requestFrames());
 
     try {
@@ -92,6 +91,7 @@ export const fetchFrames = () => {
         }
       });
     } catch (e) {
+      console.log(e);
       return dispatch(gameNotFound());
     }
 

@@ -1,6 +1,6 @@
 #webページを更新
 def update_web(group_num,game_id,score,num_game,now_time):
-    js_file_path = '../../result/add-page.js'
+    js_file_path = '../../cc-web/public/add-page.js'
     not_initial_commit = True
     #jsファイルを読み込み
     with open(js_file_path,'r') as reader:

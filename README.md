@@ -68,7 +68,7 @@ privateの最初の実行でdeploy.pyがgit pullする際にユーザ名とパ�
 vcliであるCC/Virutal-CLI/main.go改変する場合は[go](https://virment.com/how-to-install-latest-go-lang-on-linux/)インストール必要
 ## 課題
 #### 開発
-- [ ] vcliの改変
+- [x] vcliの改変
 - [x] replテスト
 - [ ] duel実装
 #### slack
@@ -76,7 +76,7 @@ vcliであるCC/Virutal-CLI/main.go改変する場合は[go](https://virment.com
 - [ ] 画像だけでなくて"g9 commit"や，どうランクが変動したかなどのメッセージ
 - [x] appの名前をcc-botに変更し,アイコンつける
 - [x] 画像の縦軸に"rank"とつける
-- [ ] 画像の横軸の斜めフォントを縦に変更
+- [ ] #cc-testを#ccに変更
 
 #### 初回授業
 初夏授業時に簡単な説明．スライド1p,max5m程度．
@@ -85,9 +85,9 @@ vcliであるCC/Virutal-CLI/main.go改変する場合は[go](https://virment.com
 #### wepページ
 - [x] 図を含めて左寄せにする
 - [x] タイトルを"PBLB2023 対戦結果速報"とかに変える．
-- [ ] "g1 commit"の下にサブタイトル的にで日付を入れる
-- [ ] 画像のグループ一覧は自然な形にする
-- [ ] それに合わせて表も2段組にする．可読性のために🔴group1 とかにする．
+- [x] "g1 commit"の下にサブタイトル的にで日付を入れる
+- [ ] 画像のグループ一覧は自然な形にする←無理そう
+- [x] それに合わせて表も2段組にする．可読性のために🔴group1 とかにする．
 - [ ] aタグで各commitにタグつける．slackに送るurlもそれに飛べるようにする．(#commit-id)
 - [ ] 表の桁はmaxの3桁に合わせる．形が不変な表．
 - [x] tdのカーソルを切る．aタグいれたのでもういらない．

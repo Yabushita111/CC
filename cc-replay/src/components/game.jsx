@@ -101,9 +101,10 @@ class Game extends React.Component {
       this.props.toggleTheme(options.theme);
     }
 
-    if (!(options.game && options.engine)) {
+    //if (!(options.game && options.engine)) {
+    if (!options.game) {
       this.invalidArgs = true;
-      return;
+      // return;
     }
 
     this.hideLogo = options.hideLogo === "true";

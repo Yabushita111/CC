@@ -13,13 +13,13 @@ def get_ranking(array):
                 break
     return ranks 
 def make_chart(commit_group,game_id):
-    log_path = '../../result/chart-log/'
+    log_path = '../../cc-web/public/chart-log/'
     time = []
     groups = np.empty((14, 0), dtype=int)
-    #group1:赤,group2:青,group3:緑,group4:黄色,group5:オレンジ,group6:ピンク,group7:紫
-    #group8:ブラウン,group9:グレー,group10:シアン,group11:ネイビーブルー,group12:ライムグリーン,group13:マゼンタ,group14:ターコイズ
-    color_list = ["#FF0000", "#0000FF", "#008000", "#FFFF00", "#FFA500", "#FFC0CB", "#800080", 
-                  "#A52A2A", "#808080", "#00FFFF", "#000080", "#32CD32", "#FF00FF", "#40E0D0"]
+    #group1:赤,group2:青,group3:緑,group4:オリーブ,group5:オレンジ,group6:ピンク,group7:紫
+    #group8:ブラウン,group9:グレー,group10:ライトコーラル,group11:ネイビーブルー,group12:ライムグリーン,group13:マゼンタ,group14:ターコイズ
+    color_list = ["#FF0000", "#0000FF", "#008000", "#808000", "#FFA500", "#FFC0CB", "#800080", 
+                  "#A52A2A", "#808080", "#f08080", "#000080", "#32CD32", "#FF00FF", "#40E0D0"]
     with open('ranking.txt','r') as f:
         all_lines = f.readlines()
     lines = all_lines

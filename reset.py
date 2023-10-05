@@ -2,9 +2,9 @@ import os
 import shutil
 
 battle_log_dir = 'battlelog'
-chart_log_dir = 'result/chart-log'
+chart_log_dir = 'cc-web/public/chart-log'
 ranking_txt_file = 'pbl/ranking.txt'
-add_page_file = 'result/add-page.js'
+add_page_file = 'cc-web/public/add-page.js'
 start_str = '//[["",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]'
 end_str = '// end ranking score'
 
